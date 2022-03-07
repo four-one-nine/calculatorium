@@ -41,6 +41,7 @@ function App() {
 
 export default App;
 
+//Used to validate numbers entered into a text input and not allow the entering/assignment of NaN strings
 export function validateNum(n, e) {
   if (isNaN(e.target.value)){
     e.target.value=n;

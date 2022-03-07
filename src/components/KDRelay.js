@@ -82,7 +82,7 @@ function KDRelay() {
             </div>
             <div className='col'>
                 <div className='border bg-light p-1'>
-                    <h5>Using (1-M)</h5>
+                    <h5>Using (1+M)</h5>
                     <h1>{result2}</h1>
                 </div>
             </div>

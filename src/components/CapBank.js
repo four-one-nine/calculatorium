@@ -2,18 +2,23 @@ import React, {useState, useEffect} from 'react'
 import {validateNum} from '../App';
 
 function CapBank() {
-    const [okv, setOKV] = useState(223.4);
-    const [tkv, setTKV] = useState(230);
-    const [omva, setOMVA] = useState(303.2);
-    const [result, setResult] = useState(451.3);
+    const [okv, setOKV] = useState(500);
+    const [rkv, setRKV] = useState(552);
+    const [rvar, setRVAR] = useState(244.8);
+    const [ovar, setOVAR] = useState(0);
+    const [amps, setAmps] = useState(0);
 
     //Forces the update of the DOM items any time the state changes
     useEffect(() => {    updateResult();  });
 
     //Updates the result based on the current values or variables
     function updateResult(state) {
-        var myResult = parseFloat(okv * 2).toFixed(2);
-        setResult(myResult);
+        var tempOvar = ((okv/rkv)**2)*rvar;
+        var tempAmps = (ovar*1000)/(okv*Math.sqrt(3));
+        var myResult1 = parseFloat(tempOvar).toFixed(2);
+        var myResult2 = parseFloat(tempAmps).toFixed(2);
+        setOVAR(myResult1);
+        setAmps(myResult2);
     }
 
     //Updates variable OKV
@@ -22,16 +27,16 @@ function CapBank() {
         setOKV(e.target.value);
     }
 
-    //Updates variable TKV
-    function updateTKV(e) {
-        validateNum(tkv,e)
-        setTKV(e.target.value);
+    //Updates variable RKV
+    function updateRKV(e) {
+        validateNum(rkv,e)
+        setRKV(e.target.value);
     }
 
-    //Updates variable TKV
-    function updateOMVA(e) {
-        validateNum(omva,e)
-        setOMVA(e.target.value);
+    //Updates variable RKV
+    function updateRVAR(e) {
+        validateNum(rvar,e)
+        setRVAR(e.target.value);
     }
 
   return (
@@ -40,20 +45,20 @@ function CapBank() {
         <form>
         <div className='row py-2'>
             <div className='col'>
-                <label htmlFor="tkvInput" className="form-label">Target Voltage (in KV)</label> 
-                <input type='text' className='form-control form-cotnrol-lg' name='tkv' placeholder='230' onChange={updateTKV}></input>
+                <label htmlFor="RKVInput" className="form-label">Operating Voltage (in KV)</label> 
+                <input type='text' className='form-control form-cotnrol-lg' name='rkv' placeholder='230' onChange={updateRKV}></input>
             </div>
             <div className='col'>
-                <label htmlFor="okvInput" className="form-label">Operating Voltage (in KV)</label> 
+                <label htmlFor="okvInput" className="form-label">Rated Voltage (in KV)</label> 
                 <input type='text' className='form-control form-cotnrol-lg' name='okv' placeholder='223.4' onChange={updateOKV}></input>
             </div>
             <div className='col'>
-                <label htmlFor="omvaInput" className="form-label">Operative MVA</label> 
-                <input type='text' className='form-control form-cotnrol-lg' name='omva' placeholder='303.2' onChange={updateOMVA}></input>
+                <label htmlFor="RVARInput" className="form-label">Operative MVAR</label> 
+                <input type='text' className='form-control form-cotnrol-lg' name='rvar' placeholder='303.2' onChange={updateRVAR}></input>
             </div>
             <div className='col'>
-                <h5>Target MVA</h5>
-                <h1>{result}</h1>
+                <h5>Rated MVAR (Amps)</h5>
+                <h2>{ovar} ({amps} Amps)</h2>
             </div>
         </div>
         </form>
