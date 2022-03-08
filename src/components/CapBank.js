@@ -46,18 +46,18 @@ function CapBank() {
         <div className='row py-2'>
             <div className='col'>
                 <label htmlFor="RKVInput" className="form-label">Operating Voltage (in KV)</label> 
-                <input type='text' className='form-control form-cotnrol-lg' name='rkv' placeholder='230' onChange={updateRKV}></input>
+                <input type='text' className='form-control form-cotnrol-lg' name='rkv' placeholder='230' onChange={updateOKV}></input>
             </div>
             <div className='col'>
                 <label htmlFor="okvInput" className="form-label">Rated Voltage (in KV)</label> 
-                <input type='text' className='form-control form-cotnrol-lg' name='okv' placeholder='223.4' onChange={updateOKV}></input>
+                <input type='text' className='form-control form-cotnrol-lg' name='okv' placeholder='223.4' onChange={updateRKV}></input>
             </div>
             <div className='col'>
-                <label htmlFor="RVARInput" className="form-label">Operative MVAR</label> 
+                <label htmlFor="RVARInput" className="form-label">Rated MVAR</label> 
                 <input type='text' className='form-control form-cotnrol-lg' name='rvar' placeholder='303.2' onChange={updateRVAR}></input>
             </div>
             <div className='col'>
-                <h5>Rated MVAR (Amps)</h5>
+                <h5>Oper. MVAR (Amps)</h5>
                 <h2>{ovar} ({amps} Amps)</h2>
             </div>
         </div>
