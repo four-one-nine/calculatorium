@@ -58,6 +58,7 @@ const [result, setResult] = useState(1);
                 </div>
             </div>  
         </div>
+        <p>*SEL321 Uses Z1ANG=90</p>
     </div> 
   )
 }

@@ -4,7 +4,7 @@ import {validateNum} from '../App';
 function KDRelay() {
     const [t, setT] = useState(1);
     const [s, setS] = useState(1);
-    const [mta, setMTA] = useState(75);
+    const [mta, setMTA] = useState(60);
     const [m, setM] = useState(0.12);
     const [result, setResult] = useState(0.00);
     const [result2, setResult2] = useState(0.00);
@@ -15,8 +15,8 @@ function KDRelay() {
     //Updates the result based on the current values or variables
     function updateResult(state) {
         var nom = t*s*Math.sin(mta);
-        var denom1 = (1-m)*Math.sin(75);
-        var denom2 = (1+m)*Math.sin(75);
+        var denom1 = (1-m)*Math.sin(mta);
+        var denom2 = (1+m)*Math.sin(60);
         var myResult1 = parseFloat(nom/denom1).toFixed(2);
         var myResult2 = parseFloat(nom/denom2).toFixed(2);
         setResult(myResult1);
@@ -88,6 +88,7 @@ function KDRelay() {
             </div>
         </div>  
     </div>
+    <p>*Do not utilize MTA except in specific cases</p>
     </div>
 )
 }

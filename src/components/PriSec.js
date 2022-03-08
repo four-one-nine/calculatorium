@@ -19,10 +19,14 @@ function PriSec() {
         if(isInPri) {
             var tempSOhms = pOhms * (ctr/pt);
             var myResult = parseFloat(tempSOhms).toFixed(2);
+            var form = document.getElementById('secSettings');
+            form.value = myResult;
             setResult(result => myResult);
         } else {
             var tempPOhms = sOhms / (ctr/pt);
             var myResult = parseFloat(tempPOhms).toFixed(2);
+            var form = document.getElementById('priSettings');
+            form.value = myResult;
             setResult(result => myResult);
         }
         
@@ -74,13 +78,13 @@ function PriSec() {
             <div className='row py-2'>
                 <div className='col'>
                     <label htmlFor="SecInput" className="form-label">Setting (in Primary)</label> 
-                    <input type='text' className='form-control form-cotnrol-lg' name='settings' placeholder='13.1' onChange={updatePOhms}></input>
+                    <input type='text' className='form-control form-cotnrol-lg' id='priSettings' placeholder='13.1' onChange={updatePOhms}></input>
                 </div>
             </div>
             <div className='row py-2'>
                 <div className='col'>
                     <label htmlFor="PriInput" className="form-label">Setting (in Secondary)</label> 
-                    <input type='text' className='form-control form-cotnrol-lg' name='settings' placeholder='1.6' onChange={updateSOhms}></input>
+                    <input type='text' className='form-control form-cotnrol-lg' id='secSettings' placeholder='1.6' onChange={updateSOhms}></input>
                 </div>
             </div>
         </form>

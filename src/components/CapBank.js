@@ -15,10 +15,10 @@ function CapBank() {
     function updateResult(state) {
         var tempOvar = ((okv/rkv)**2)*rvar;
         var tempAmps = (tempOvar*1000)/(okv*Math.sqrt(3));
-        var myResult1 = parseFloat(tempOvar).toFixed(2);
-        var myResult2 = parseFloat(tempAmps).toFixed(2);
-        setOVAR(myResult1);
-        setAmps(myResult2);
+        var myOvar = parseFloat(tempOvar).toFixed(2);
+        var myAmps = parseFloat(tempAmps).toFixed(2);
+        setOVAR(myOvar);
+        setAmps(myAmps);
     }
 
     //Updates variable OKV
