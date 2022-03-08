@@ -14,7 +14,7 @@ function CapBank() {
     //Updates the result based on the current values or variables
     function updateResult(state) {
         var tempOvar = ((okv/rkv)**2)*rvar;
-        var tempAmps = (ovar*1000)/(okv*Math.sqrt(3));
+        var tempAmps = (tempOvar*1000)/(okv*Math.sqrt(3));
         var myResult1 = parseFloat(tempOvar).toFixed(2);
         var myResult2 = parseFloat(tempAmps).toFixed(2);
         setOVAR(myResult1);
